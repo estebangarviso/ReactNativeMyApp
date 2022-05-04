@@ -1,33 +1,27 @@
-import React, {useState} from 'react';
-import {Text, View} from 'react-native';
-import Button from './src/components/Button';
+import React from 'react';
+import {NavigationContainer} from '@react-navigation/native';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import HomeScreen from './src/screens/Home';
+import DetailsScreen from './src/screens/Details';
+import LoginScreen from './src/screens/Login';
+
+const Stack = createNativeStackNavigator();
 
 const App = () => {
-  const [counter, setCounter] = useState(0);
-  const increase = () => {
-    setCounter(counter + 1);
-  };
-  const decrease = () => {
-    if (counter > 0) {
-      setCounter(counter - 1);
-    }
-  };
-  const reset = () => {
-    setCounter(0);
-  };
   return (
-    <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-      <Text>{counter}</Text>
-      <Button onPress={increase}>
-        <Text>Increase</Text>
-      </Button>
-      <Button onPress={decrease}>
-        <Text>Decrease</Text>
-      </Button>
-      <Button onPress={reset}>
-        <Text>Reset</Text>
-      </Button>
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="Home" component={HomeScreen} />
+        <Stack.Screen name="Details" component={DetailsScreen} />
+        <Stack.Screen
+          name="Login"
+          component={LoginScreen}
+          options={{
+            headerShown: false,
+          }}
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 };
 

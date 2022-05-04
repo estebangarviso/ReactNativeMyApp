@@ -1,12 +1,24 @@
 import {TouchableOpacity, StyleSheet} from 'react-native';
 import React, {FC} from 'react';
-type Props = {
-  onPress: () => void;
-  children: React.ReactNode;
-};
-const Button: FC<Props> = ({children, ...otherProps}) => {
+import {useNavigation} from '@react-navigation/native';
+
+const Button: FC<ButtonType> = ({
+  children,
+  screenName,
+  onPress,
+  ...otherProps
+}) => {
+  const navigation = useNavigation();
+  console.log(navigation);
+  const handlePress = () =>
+    screenName
+      ? navigation.navigate(screenName as never)
+      : onPress && onPress();
   return (
-    <TouchableOpacity style={styles.button} {...otherProps} activeOpacity={0.8}>
+    <TouchableOpacity
+      style={styles.button}
+      onPress={handlePress}
+      {...otherProps}>
       {children}
     </TouchableOpacity>
   );
@@ -14,7 +26,7 @@ const Button: FC<Props> = ({children, ...otherProps}) => {
 
 const styles = StyleSheet.create({
   button: {
-    backgroundColor: '#c3c3c3',
+    backgroundColor: '#93FF33',
     height: 30,
     width: 'auto',
     justifyContent: 'center',
