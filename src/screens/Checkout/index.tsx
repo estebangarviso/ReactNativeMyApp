@@ -1,18 +1,16 @@
-import {Route} from '@react-navigation/native';
 import React, {FC} from 'react';
 import {SafeAreaView, StyleSheet} from 'react-native';
 import Title from '../../components/Title';
 
-const DetailsScreen: FC<{route: Route<string, CharacterProps>}> = ({route}) => {
-  const {name} = route.params;
+const CheckoutScreen: FC = () => {
   return (
     <SafeAreaView style={styles.container}>
-      <Title>{name}</Title>
+      <Title>Checkout</Title>
     </SafeAreaView>
   );
 };
 
-export default DetailsScreen;
+export default CheckoutScreen;
 
 const styles = StyleSheet.create({
   container: {

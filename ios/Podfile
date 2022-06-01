@@ -19,6 +19,12 @@ target 'MyApp' do
     :app_path => "#{Pod::Config.instance.installation_root}/.."
   )
 
+  pod 'RNSentry', :path => '../node_modules/@sentry/react-native'
+
+  pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
+
+  pod 'react-native-restart', :path => '../node_modules/react-native-restart'
+
   target 'MyAppTests' do
     inherit! :complete
     # Pods for testing

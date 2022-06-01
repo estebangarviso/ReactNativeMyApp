@@ -14,10 +14,10 @@ const LoginScreen: FC = () => {
   );
 };
 
+export default LoginScreen;
+
 const styles = StyleSheet.create({
   container: {
     backgroundColor: '#fff',
   },
 });
-
-export default LoginScreen;

@@ -9,6 +9,8 @@ const Title: FC = ({children}) => {
   );
 };
 
+export default Title;
+
 const styles = StyleSheet.create({
   container: {
     display: 'flex',
@@ -23,5 +25,3 @@ const styles = StyleSheet.create({
     maxWidth: '100%',
   },
 });
-
-export default Title;
